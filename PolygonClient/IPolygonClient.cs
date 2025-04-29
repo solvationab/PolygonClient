@@ -13,7 +13,7 @@ namespace PolygonClient
         #region Tickers
 
         [Get("/v3/reference/tickers")]
-        Task<CollectionResponse<TickerListItemDto>> GetTickers(
+        Task<CollectionResponse<TickerListItemDto>> GetAllTickers(
             [AliasAs("ticker")] string ticker = null,
             [AliasAs("type")] string type = null,
             [AliasAs("market")] MarketTypesDto? market = null,
