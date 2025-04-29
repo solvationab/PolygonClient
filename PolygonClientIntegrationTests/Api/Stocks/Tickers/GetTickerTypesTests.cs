@@ -1,10 +1,5 @@
 ﻿using FluentAssertions;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using PolygonClient;
-using PolygonClient.Config;
 using PolygonClient.Dto.Stocks.Tickers;
-using PolygonClient.Extensions;
 
 namespace PolygonClientIntegrationTests.Api.Stocks.Tickers
 {
@@ -14,21 +9,7 @@ namespace PolygonClientIntegrationTests.Api.Stocks.Tickers
         [TestMethod]
         public async Task GetTickerTypes()
         {
-            var config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json") 
-                .AddEnvironmentVariables()
-                .AddUserSecrets<GetTickerTypesTests>()
-                .Build();
-
-            var polygonConfig = config.GetRequiredConfig<PolygonConfig>("Polygon");
-
-            var serviceProvider = new ServiceCollection()
-                .AddLogging()
-                .AddHttpClient()
-                .AddPolygonClient(polygonConfig)
-                .BuildServiceProvider();
-
-            var client = serviceProvider.GetRequiredService<IPolygonClient>();
+            var client = ClientFactory.CreateClient();
 
             var response = await client.GetTickerTypes();
 
