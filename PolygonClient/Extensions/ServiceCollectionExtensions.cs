@@ -6,6 +6,7 @@ using Refit;
 using System;
 using System.Net.Http.Headers;
 using System.Text.Json;
+using PolygonClient.JsonConverters;
 
 namespace PolygonClient.Extensions
 {
@@ -67,7 +68,7 @@ namespace PolygonClient.Extensions
             {
                 //NumberHandling = JsonNumberHandling.AllowReadingFromString,
                 //DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-                //Converters = { new PolygonDateTimeConverter(), new PolygonNullableDateTimeConverter(), new JsonStringEnumConverterEx() }
+                Converters = { new JsonStringEnumConverterEx() }
             };
         }
     }

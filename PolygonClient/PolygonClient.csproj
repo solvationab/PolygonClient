@@ -70,8 +70,4 @@
 		<None Include="README.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Dto\" />
-	</ItemGroup>
-
 </Project>
