@@ -28,6 +28,12 @@ namespace PolygonClient
             [AliasAs("sort")] TickerSortTypesDto? sort = null
             );
 
+        [Get("/v3/reference/tickers/{ticker}")]
+        Task<Response<TickerDetailDto>> GetTicker(
+            [AliasAs("ticker")] string ticker,
+            [AliasAs("date")] DateTime? date = null
+            );
+
         [Get("/v3/reference/tickers/types")]
         Task<CollectionResponse<TickerTypeDto>> GetTickerTypes(
             [AliasAs("asset_class")] AssetClassesDto? assetClass = null,
