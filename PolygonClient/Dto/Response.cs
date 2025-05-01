@@ -28,5 +28,11 @@ namespace PolygonClient.Dto
         /// </summary>
         [JsonPropertyName("results")] 
         public T Results { get; }
+
+        /// <summary>
+        /// The error message if the request was not successful.
+        /// </summary>
+        [JsonPropertyName("message")]
+        public string Message { get; }
     }
 }
