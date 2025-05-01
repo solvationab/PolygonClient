@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using PolygonClient.Dto;
 using PolygonClient.Dto.Stocks.AggregateBars;
 using PolygonClient.Dto.Stocks.AggregateBars.CustomBars;
+using PolygonClient.Dto.Stocks.AggregateBars.DailyMarketSummary;
 using PolygonClient.Dto.Stocks.Tickers;
 using Refit;
 
@@ -116,6 +117,13 @@ namespace PolygonClient
             [AliasAs("adjusted")] bool? adjusted = null,
             [AliasAs("sort")] OrderTypesDto? sort = null,
             [AliasAs("limit")] int? limit = null
+            );
+
+        [Get("/v2/aggs/grouped/locale/us/market/stocks/{date}")]
+        Task<AggregateBarsResponse<DailyMarketSummaryDto>> GetDailyMarketSummary(
+            [AliasAs("date")] DateTime date,
+            [AliasAs("adjusted")] bool? adjusted = null,
+            [AliasAs("include_otc")] bool? includeOtc = null
             );
 
         #endregion
