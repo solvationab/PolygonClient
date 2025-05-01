@@ -40,6 +40,11 @@ namespace PolygonClient
             [AliasAs("locale")] TickerLocalesDto? locale = null
             );
 
+        [Get("/v1/related-companies/{ticker}")]
+        Task<CollectionResponse<RelatedTickerDto>> GetRelatedTickers(
+            [AliasAs("ticker")] string ticker
+            );
+
         #endregion
 
         #region Aggregate Bars(OHLC)
