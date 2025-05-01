@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
 	  <Title>Polygon Client</Title>
 	  <Description>A .NET client for polygon.io</Description>
-	  <PackageTags>polygon.io</PackageTags>
+	  <PackageTags>polygon.io stock options indices forex crypto economy market</PackageTags>
 	  <PackageId>Solvation.PolygonClient</PackageId>
 	  <Authors>Patrik Backhuvud</Authors>
 	  <Company>Solvation AB</Company>
