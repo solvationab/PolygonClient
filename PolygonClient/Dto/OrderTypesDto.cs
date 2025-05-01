@@ -1,8 +1,8 @@
 ﻿using System.Runtime.Serialization;
 
-namespace PolygonClient.Dto.Stocks.Tickers
+namespace PolygonClient.Dto
 {
-    public enum TickerOrderTypesDto
+    public enum OrderTypesDto
     {
         [EnumMember(Value = "asc")]
         Asc,

@@ -33,7 +33,8 @@ namespace PolygonClient.Extensions
                     var settings = new RefitSettings
                     {
                         ContentSerializer = new SystemTextJsonContentSerializer(GetJsonSerializerOptions()),
-                        FormUrlEncodedParameterFormatter = new PolygonFormUrlEncodedParameterFormatter(new DefaultFormUrlEncodedParameterFormatter())
+                        UrlParameterFormatter = new PolygonUrlParameterFormatter(new DefaultUrlParameterFormatter()),
+                        //FormUrlEncodedParameterFormatter = new PolygonFormUrlEncodedParameterFormatter(new DefaultFormUrlEncodedParameterFormatter())
                     };
 
                     return settings;

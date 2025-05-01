@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using PolygonClient;
 using PolygonClient.Config;
 using PolygonClient.Extensions;
@@ -19,7 +20,12 @@ namespace PolygonClientIntegrationTests
             var polygonConfig = config.GetRequiredConfig<PolygonConfig>("Polygon");
 
             var serviceProvider = new ServiceCollection()
-                .AddLogging()
+                .AddLogging(configure =>
+                {
+                    configure.AddConfiguration(config.GetSection("Logging"));
+                    configure.AddConsole(); 
+                    configure.AddDebug(); 
+                })
                 .AddHttpClient()
                 .AddPolygonClient(polygonConfig)
                 .BuildServiceProvider();

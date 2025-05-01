@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using PolygonClient.Dto;
+using PolygonClient.Dto.Stocks.AggregateBars;
+using PolygonClient.Dto.Stocks.AggregateBars.CustomBars;
 using PolygonClient.Dto.Stocks.Tickers;
 using Refit;
 
@@ -41,7 +43,7 @@ namespace PolygonClient
             [AliasAs("date")] DateTime? date = null,
             [AliasAs("search")] string search = null,
             [AliasAs("active")] bool? active = null,
-            [AliasAs("order")] TickerOrderTypesDto? order = null,
+            [AliasAs("order")] OrderTypesDto? order = null,
             [AliasAs("limit")] int? limit = null,
             [AliasAs("sort")] TickerSortTypesDto? sort = null
             );
@@ -49,7 +51,7 @@ namespace PolygonClient
         /// <summary>
         /// Retrieve comprehensive details for a single ticker supported by Polygon.io. This endpoint offers a deep look into a company’s fundamental attributes, including its primary exchange, standardized identifiers (CIK, composite FIGI, share class FIGI), market capitalization, industry classification, and key dates. Users also gain access to branding assets (e.g., logos, icons), enabling them to enrich applications and analyses with visually consistent, contextually relevant information.
         ///
-        /// Use Cases: Company research, data integration, application enhancement, due diligence & compliance.
+        /// Use Cases: Company research, data integration, application enhancement, due diligence &amp; compliance.
         /// </summary>
         /// <param name="ticker"></param>
         /// <param name="date"></param>
@@ -89,6 +91,33 @@ namespace PolygonClient
         #endregion
 
         #region Aggregate Bars(OHLC)
+
+        /// <summary>
+        /// Retrieve aggregated historical OHLC (Open, High, Low, Close) and volume data for a specified stock ticker over a custom date range and time interval in Eastern Time (ET). Aggregates are constructed exclusively from qualifying trades that meet specific conditions. If no eligible trades occur within a given timeframe, no aggregate bar is produced, resulting in an empty interval that indicates a lack of trading activity during that period. Users can tailor their data by adjusting the multiplier and timespan parameters (e.g., a 5-minute bar), covering pre-market, regular market, and after-hours sessions. This flexibility supports a broad range of analytical and visualization needs.
+        ///
+        /// Use Cases: Data visualization, technical analysis, backtesting strategies, market research.
+        /// </summary>
+        /// <param name="stocksTicker"></param>
+        /// <param name="multiplier"></param>
+        /// <param name="timespan"></param>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <param name="adjusted"></param>
+        /// <param name="sort"></param>
+        /// <param name="limit"></param>
+        /// <returns></returns>
+        [Get("/v2/aggs/ticker/{stocksTicker}/range/{multiplier}/{timespan}/{from}/{to}")]
+        Task<AggregateBarsResponse<CustomBarDto>> GetCustomBars(
+            [AliasAs("stocksTicker")] string stocksTicker,
+            [AliasAs("multiplier")] int multiplier,
+            [AliasAs("timespan")] TimespansDto timespan,
+            [AliasAs("from")] DateTime from,
+            [AliasAs("to")] DateTime to,
+            [AliasAs("adjusted")] bool? adjusted = null,
+            [AliasAs("sort")] OrderTypesDto? sort = null,
+            [AliasAs("limit")] int? limit = null
+            );
+
         #endregion
 
         #region Snapshots
