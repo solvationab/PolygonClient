@@ -4,6 +4,7 @@ using PolygonClient.Dto;
 using PolygonClient.Dto.Stocks.AggregateBars;
 using PolygonClient.Dto.Stocks.AggregateBars.CustomBars;
 using PolygonClient.Dto.Stocks.AggregateBars.DailyMarketSummary;
+using PolygonClient.Dto.Stocks.AggregateBars.DailyTickerSummary;
 using PolygonClient.Dto.Stocks.Tickers;
 using PolygonClient.Dto.Stocks.Tickers.AllTickers;
 using PolygonClient.Dto.Stocks.Tickers.RelatedTickers;
@@ -128,6 +129,13 @@ namespace PolygonClient
             [AliasAs("date")] DateTime date,
             [AliasAs("adjusted")] bool? adjusted = null,
             [AliasAs("include_otc")] bool? includeOtc = null
+            );
+
+        [Get("/v1/open-close/{stocksTicker}/{date}")]
+        Task<DailyTickerSummaryResponse> GetDailyTickerSummary(
+            [AliasAs("stocksTicker")] string stocksTicker,
+            [AliasAs("date")] DateTime date,
+            [AliasAs("adjusted")] bool? adjusted = null
             );
 
         #endregion
