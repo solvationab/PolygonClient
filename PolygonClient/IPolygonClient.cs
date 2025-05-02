@@ -125,6 +125,15 @@ namespace PolygonClient
             [AliasAs("limit")] int? limit = null
             );
 
+        /// <summary>
+        /// Retrieve daily OHLC (open, high, low, close), volume, and volume-weighted average price (VWAP) data for all U.S. stocks on a specified trading date. This endpoint returns comprehensive market coverage in a single request, enabling wide-scale analysis, bulk data processing, and research into broad market performance.
+        ///
+        /// Use Cases: Market overview, bulk data processing, historical research, and portfolio comparison.
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="adjusted"></param>
+        /// <param name="includeOtc"></param>
+        /// <returns></returns>
         [Get("/v2/aggs/grouped/locale/us/market/stocks/{date}")]
         Task<AggregateBarsResponse<DailyMarketSummaryDto>> GetDailyMarketSummary(
             [AliasAs("date")] DateTime date,
@@ -132,6 +141,15 @@ namespace PolygonClient
             [AliasAs("include_otc")] bool? includeOtc = null
             );
 
+        /// <summary>
+        /// Retrieve the opening and closing prices for a specific stock ticker on a given date, along with any pre-market and after-hours trade prices. This endpoint provides essential daily pricing details, enabling users to evaluate performance, conduct historical analysis, and gain insights into trading activity outside regular market sessions.
+        ///
+        /// Use Cases: Daily performance analysis, historical data collection, after-hours insights, portfolio tracking.
+        /// </summary>
+        /// <param name="stocksTicker"></param>
+        /// <param name="date"></param>
+        /// <param name="adjusted"></param>
+        /// <returns></returns>
         [Get("/v1/open-close/{stocksTicker}/{date}")]
         Task<DailyTickerSummaryResponse> GetDailyTickerSummary(
             [AliasAs("stocksTicker")] string stocksTicker,
@@ -139,6 +157,14 @@ namespace PolygonClient
             [AliasAs("adjusted")] bool? adjusted = null
             );
 
+        /// <summary>
+        /// Retrieve the previous trading day's open, high, low, and close (OHLC) data for a specified stock ticker. This endpoint provides key pricing metrics, including volume, to help users assess recent performance and inform trading strategies.
+        ///
+        /// Use Cases: Baseline comparison, technical analysis, market research, and daily reporting.
+        /// </summary>
+        /// <param name="stocksTicker"></param>
+        /// <param name="adjusted"></param>
+        /// <returns></returns>
         [Get("/v2/aggs/ticker/{stocksTicker}/prev")]
         Task<AggregateBarsResponse<PreviousDayBarDto>> GetPreviousDayBar(
             [AliasAs("stocksTicker")] string stocksTicker,
