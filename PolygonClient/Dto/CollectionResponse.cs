@@ -8,10 +8,11 @@ namespace PolygonClient.Dto
         public CollectionResponse(
             string requestId,
             string status,
+            string message,
             IReadOnlyCollection<T> results,
             int? count, 
             string nextUrl
-            ) : base(requestId, status, results)
+            ) : base(requestId, status, message, results)
         {
             Count = count;
             NextUrl = nextUrl;

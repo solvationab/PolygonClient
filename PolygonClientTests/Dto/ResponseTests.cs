@@ -12,11 +12,13 @@ namespace PolygonClientTests.Dto
             var response = new Response<string>(
                 "aaa",
                 "ok",
+                "message",
                 "result"
             );
 
             response.RequestId.Should().Be("aaa");
             response.Status.Should().Be("ok");
+            response.Message.Should().Be("message");
             response.Results.Should().Be("result");
         }
     }

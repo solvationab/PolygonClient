@@ -2,13 +2,27 @@
 
 namespace PolygonClient.Dto
 {
-    public class Response<T>
+    public class Response<T> : Response
     {
-        public Response(string requestId, string status, T results)
+        public Response(string requestId, string status, string message, T results) : base(requestId, status, message)
+        {
+            Results = results;
+        }
+
+        /// <summary>
+        /// The results of the request. The type of this property will depend on the endpoint that was called.
+        /// </summary>
+        [JsonPropertyName("results")]
+        public T Results { get; }
+    }
+
+    public class Response
+    {
+        public Response(string requestId, string status, string message)
         {
             RequestId = requestId;
             Status = status;
-            Results = results;
+            Message = message;
         }
 
         /// <summary>
@@ -22,12 +36,6 @@ namespace PolygonClient.Dto
         /// </summary>
         [JsonPropertyName("status")] 
         public string Status { get; }
-
-        /// <summary>
-        /// The results of the request. The type of this property will depend on the endpoint that was called.
-        /// </summary>
-        [JsonPropertyName("results")] 
-        public T Results { get; }
 
         /// <summary>
         /// The error message if the request was not successful.

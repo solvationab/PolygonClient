@@ -3,9 +3,12 @@ using System.Text.Json.Serialization;
 
 namespace PolygonClient.Dto.Stocks.AggregateBars.DailyTickerSummary
 {
-    public class DailyTickerSummaryResponse 
+    public class DailyTickerSummaryResponse : Response
     {
         public DailyTickerSummaryResponse(
+            string requestId, 
+            string status, 
+            string message,
             decimal? afterHours,
             decimal? close,
             DateTime from,
@@ -14,10 +17,9 @@ namespace PolygonClient.Dto.Stocks.AggregateBars.DailyTickerSummary
             decimal? openPrice,
             bool isOtc,
             decimal? preMarketPrice,
-            string status,
             string symbol,
             decimal tradingVolume
-            )
+            ) : base(requestId, status, message)
         {
             AfterHours = afterHours;
             Close = close;
@@ -27,7 +29,6 @@ namespace PolygonClient.Dto.Stocks.AggregateBars.DailyTickerSummary
             OpenPrice = openPrice;
             IsOtc = isOtc;
             PreMarketPrice = preMarketPrice;
-            Status = status;
             Symbol = symbol;
             TradingVolume = tradingVolume;
         }
@@ -79,12 +80,6 @@ namespace PolygonClient.Dto.Stocks.AggregateBars.DailyTickerSummary
         /// </summary>
         [JsonPropertyName("preMarket")]
         public decimal? PreMarketPrice { get; }
-
-        /// <summary>
-        /// The status of this request's response.
-        /// </summary>
-        [JsonPropertyName("status")]
-        public string Status { get; }
 
         /// <summary>
         /// The exchange symbol that this item is traded under.

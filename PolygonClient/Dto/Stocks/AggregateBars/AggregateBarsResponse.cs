@@ -5,15 +5,16 @@ namespace PolygonClient.Dto.Stocks.AggregateBars
     public class AggregateBarsResponse<T> : Response<IReadOnlyCollection<T>>
     {
         public AggregateBarsResponse(
+            string requestId,
+            string status,
+            string message,
             string ticker,
             bool adjusted,
             string queryCount,
             string resultsCount,
-            string requestId, 
-            string status, 
             IReadOnlyCollection<T> results,
             string nextUrl = null
-            ) : base(requestId, status, results)
+            ) : base(requestId, status, message, results)
         {
             Ticker = ticker;
             Adjusted = adjusted;
