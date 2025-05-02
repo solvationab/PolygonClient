@@ -5,6 +5,10 @@ using PolygonClient.Dto.Stocks.AggregateBars;
 using PolygonClient.Dto.Stocks.AggregateBars.CustomBars;
 using PolygonClient.Dto.Stocks.AggregateBars.DailyMarketSummary;
 using PolygonClient.Dto.Stocks.Tickers;
+using PolygonClient.Dto.Stocks.Tickers.AllTickers;
+using PolygonClient.Dto.Stocks.Tickers.RelatedTickers;
+using PolygonClient.Dto.Stocks.Tickers.TickerDetail;
+using PolygonClient.Dto.Stocks.Tickers.TickerTypes;
 using Refit;
 
 namespace PolygonClient
@@ -58,7 +62,7 @@ namespace PolygonClient
         /// <param name="date"></param>
         /// <returns></returns>
         [Get("/v3/reference/tickers/{ticker}")]
-        Task<Response<TickerDetailDto>> GetTicker(
+        Task<Response<TickerDetailDto>> GetTickerDetail(
             [AliasAs("ticker")] string ticker,
             [AliasAs("date")] DateTime? date = null
             );

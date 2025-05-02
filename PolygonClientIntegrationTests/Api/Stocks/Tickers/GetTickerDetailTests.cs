@@ -1,16 +1,18 @@
 ﻿using FluentAssertions;
-using PolygonClient.Dto.Stocks.Tickers;
+using PolygonClient.Dto.Stocks.Tickers.TickerDetail;
 
 namespace PolygonClientIntegrationTests.Api.Stocks.Tickers;
 
 [TestClass]
-public class GetTickerTests
+public class GetTickerDetailTests
 {
     [TestMethod]
-    public async Task GetTicker()
+    public async Task GetTickerDetail()
     {
         var client = ClientFactory.CreateClient();
-        var response = await client.GetTicker("AAPL");
+
+        var response = await client.GetTickerDetail("AAPL");
+
         response.Should().NotBeNull();
         response.RequestId.Should().NotBeNullOrEmpty();
         response.Status.Should().Be("OK");

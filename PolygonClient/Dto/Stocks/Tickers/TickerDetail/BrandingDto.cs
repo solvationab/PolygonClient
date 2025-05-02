@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace PolygonClient.Dto.Stocks.Tickers
+namespace PolygonClient.Dto.Stocks.Tickers.TickerDetail
 {
     public class BrandingDto
     {

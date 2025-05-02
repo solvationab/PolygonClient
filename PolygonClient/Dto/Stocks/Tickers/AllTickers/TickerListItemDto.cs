@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 
-namespace PolygonClient.Dto.Stocks.Tickers
+namespace PolygonClient.Dto.Stocks.Tickers.AllTickers
 {
     public class TickerListItemDto
     {

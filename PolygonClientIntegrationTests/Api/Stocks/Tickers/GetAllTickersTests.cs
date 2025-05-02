@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using PolygonClient.Dto.Stocks.Tickers;
+using PolygonClient.Dto.Stocks.Tickers.AllTickers;
 
 namespace PolygonClientIntegrationTests.Api.Stocks.Tickers;
 
