@@ -83,7 +83,7 @@ namespace PolygonClient
         [Get("/v3/reference/tickers/types")]
         Task<CollectionResponse<TickerTypeDto>> GetTickerTypes(
             [AliasAs("asset_class")] AssetClassesDto? assetClass = null,
-            [AliasAs("locale")] TickerLocalesDto? locale = null
+            [AliasAs("locale")] LocalesDto? locale = null
             );
 
         /// <summary>
@@ -203,7 +203,7 @@ namespace PolygonClient
         [Get("/v3/reference/exchanges")]
         Task<CollectionResponse<ExchangesDto>> GetExchanges(
             [AliasAs("asset_class")] AssetClassesDto? assetClass = null,
-            [AliasAs("locale")] TickerLocalesDto? locale = null
+            [AliasAs("locale")] LocalesDto? locale = null
             );
 
         #endregion

@@ -16,7 +16,7 @@ namespace PolygonClient.Dto.Stocks.Tickers.TickerDetail
             string description,
             string homepageUrl,
             DateTime? listDate,
-            TickerLocalesDto locale,
+            LocalesDto locale,
             MarketTypesDto market,
             decimal? marketCap,
             string name,
@@ -128,7 +128,7 @@ namespace PolygonClient.Dto.Stocks.Tickers.TickerDetail
         /// The locale of the asset.
         /// </summary>
         [JsonPropertyName("locale")]
-        public TickerLocalesDto Locale { get; }
+        public LocalesDto Locale { get; }
 
         /// <summary>
         /// The market type of the asset.

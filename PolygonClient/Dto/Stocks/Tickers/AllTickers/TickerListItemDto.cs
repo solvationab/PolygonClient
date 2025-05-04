@@ -12,7 +12,7 @@ namespace PolygonClient.Dto.Stocks.Tickers.AllTickers
             string currencyName,
             DateTime delistedUtc,
             DateTime lastUpdatedUtc,
-            TickerLocalesDto locale,
+            LocalesDto locale,
             MarketTypesDto market,
             string name,
             string primaryExchange,
@@ -76,7 +76,7 @@ namespace PolygonClient.Dto.Stocks.Tickers.AllTickers
         /// The locale of the asset.
         /// </summary>
         [JsonPropertyName("locale")]
-        public TickerLocalesDto Locale { get; }
+        public LocalesDto Locale { get; }
 
         /// <summary>
         /// The market type of the asset.

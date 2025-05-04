@@ -8,7 +8,7 @@ namespace PolygonClient.Dto.Stocks.Tickers.TickerTypes
             AssetClassesDto assetClass,
             string code,
             string description,
-            TickerLocalesDto locale
+            LocalesDto locale
             )
         {
             AssetClass = assetClass;
@@ -39,6 +39,6 @@ namespace PolygonClient.Dto.Stocks.Tickers.TickerTypes
         /// An identifier for a geographical location.
         /// </summary>
         [JsonPropertyName("locale")]
-        public TickerLocalesDto Locale { get; }
+        public LocalesDto Locale { get; }
     }
 }

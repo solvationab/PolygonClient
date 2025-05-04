@@ -1,5 +1,4 @@
-﻿using PolygonClient.Dto.Stocks.Tickers;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace PolygonClient.Dto.Stocks.MarketOperations.Exchanges
 {
@@ -9,7 +8,7 @@ namespace PolygonClient.Dto.Stocks.MarketOperations.Exchanges
             string acronym,
             AssetClassesDto assetClass,
             int id,
-            TickerLocalesDto locale,
+            LocalesDto locale,
             string marketIdentifierCode,
             string name,
             string operatingMarketIdentifierCode,
@@ -52,7 +51,7 @@ namespace PolygonClient.Dto.Stocks.MarketOperations.Exchanges
         /// An identifier for a geographical location.
         /// </summary>
         [JsonPropertyName("locale")]
-        public TickerLocalesDto Locale { get; }
+        public LocalesDto Locale { get; }
 
         /// <summary>
         /// The Market Identifier Code of this exchange (see ISO 10383).
