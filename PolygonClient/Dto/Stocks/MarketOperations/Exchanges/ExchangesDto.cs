@@ -1,6 +1,5 @@
 ﻿using PolygonClient.Dto.Stocks.Tickers;
 using System.Text.Json.Serialization;
-using PolygonClient.Dto.Stocks.Tickers.TickerTypes;
 
 namespace PolygonClient.Dto.Stocks.MarketOperations.Exchanges
 {

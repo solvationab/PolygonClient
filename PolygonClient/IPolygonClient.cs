@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using PolygonClient.Dto;
+using PolygonClient.Dto.Stocks;
 using PolygonClient.Dto.Stocks.AggregateBars;
 using PolygonClient.Dto.Stocks.AggregateBars.CustomBars;
 using PolygonClient.Dto.Stocks.AggregateBars.DailyMarketSummary;

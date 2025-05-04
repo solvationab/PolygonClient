@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace PolygonClient.Dto.Stocks.Tickers.TickerTypes
+namespace PolygonClient.Dto.Stocks
 {
     public enum AssetClassesDto
     {
