@@ -6,6 +6,7 @@ using PolygonClient.Dto.Stocks.AggregateBars.CustomBars;
 using PolygonClient.Dto.Stocks.AggregateBars.DailyMarketSummary;
 using PolygonClient.Dto.Stocks.AggregateBars.DailyTickerSummary;
 using PolygonClient.Dto.Stocks.AggregateBars.PreviousDayBar;
+using PolygonClient.Dto.Stocks.TechnicalIndicators.SimpleMovingAverage;
 using PolygonClient.Dto.Stocks.Tickers;
 using PolygonClient.Dto.Stocks.Tickers.AllTickers;
 using PolygonClient.Dto.Stocks.Tickers.RelatedTickers;
@@ -180,6 +181,19 @@ namespace PolygonClient
         #endregion
 
         #region Technical Indicators
+
+        [Get("/v1/indicators/sma/{stockTicker}")]
+        Task<SimpleMovingAverageResponse> GetSimpleMovingAverage(
+            [AliasAs("stockTicker")] string stockTicker,
+            [AliasAs("timestamp")] int? timestamp = null,
+            [AliasAs("timespan")] TimespansDto? timespan = null,
+            [AliasAs("adjusted")] bool? adjusted = null,
+            [AliasAs("window")] int? window = null,
+            [AliasAs("series_type")] SeriesTypesDto? seriesType = null,
+            [AliasAs("expand_underlying")] bool? expandUnderlying = null,
+            [AliasAs("order")] OrderTypesDto? order = null,
+            [AliasAs("limit")] int? limit = null
+            );
         #endregion
 
         #region Market Operations
