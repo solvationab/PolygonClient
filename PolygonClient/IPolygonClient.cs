@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using PolygonClient.Dto;
 using PolygonClient.Dto.Stocks;
@@ -8,6 +9,7 @@ using PolygonClient.Dto.Stocks.AggregateBars.DailyMarketSummary;
 using PolygonClient.Dto.Stocks.AggregateBars.DailyTickerSummary;
 using PolygonClient.Dto.Stocks.AggregateBars.PreviousDayBar;
 using PolygonClient.Dto.Stocks.MarketOperations.Exchanges;
+using PolygonClient.Dto.Stocks.MarketOperations.UpcomingMarketHolidays;
 using PolygonClient.Dto.Stocks.TechnicalIndicators.SimpleMovingAverage;
 using PolygonClient.Dto.Stocks.Tickers;
 using PolygonClient.Dto.Stocks.Tickers.AllTickers;
@@ -205,6 +207,9 @@ namespace PolygonClient
             [AliasAs("asset_class")] AssetClassesDto? assetClass = null,
             [AliasAs("locale")] LocalesDto? locale = null
             );
+
+        [Get("/v1/marketstatus/upcoming")]
+        Task<IReadOnlyCollection<UpcomingMarketHolidayDto>> GetUpcomingMarketHolidays();
 
         #endregion
 
