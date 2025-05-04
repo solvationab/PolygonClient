@@ -6,6 +6,7 @@ using PolygonClient.Dto.Stocks.AggregateBars.CustomBars;
 using PolygonClient.Dto.Stocks.AggregateBars.DailyMarketSummary;
 using PolygonClient.Dto.Stocks.AggregateBars.DailyTickerSummary;
 using PolygonClient.Dto.Stocks.AggregateBars.PreviousDayBar;
+using PolygonClient.Dto.Stocks.MarketOperations.Exchanges;
 using PolygonClient.Dto.Stocks.TechnicalIndicators.SimpleMovingAverage;
 using PolygonClient.Dto.Stocks.Tickers;
 using PolygonClient.Dto.Stocks.Tickers.AllTickers;
@@ -197,12 +198,21 @@ namespace PolygonClient
         #endregion
 
         #region Market Operations
+
+        [Get("/v3/reference/exchanges")]
+        Task<CollectionResponse<ExchangesDto>> GetExchanges(
+            [AliasAs("asset_class")] AssetClassesDto? assetClass = null,
+            [AliasAs("locale")] TickerLocalesDto? locale = null
+            );
+
         #endregion
 
         #region Corporate Actions
+
         #endregion
 
         #region News
+
         #endregion
 
         #endregion
@@ -210,21 +220,27 @@ namespace PolygonClient
         #region Options
 
         #region Contracts
+
         #endregion
 
         #region Aggregate Bars(OHLC)
+
         #endregion
 
         #region Snapshots
+
         #endregion
 
         #region Trades & Quotes
+
         #endregion
 
         #region Technical Indicators
+
         #endregion
 
         #region Market Operations
+
         #endregion
 
         #endregion
@@ -232,18 +248,23 @@ namespace PolygonClient
         #region Indices
 
         #region Tickers
+
         #endregion
 
         #region Aggregate Bars(OHLC)
+
         #endregion
 
         #region Snapshots
+
         #endregion
 
         #region Technical Indicators
+
         #endregion
 
         #region Market Operations
+
         #endregion
 
         #endregion
@@ -251,24 +272,31 @@ namespace PolygonClient
         #region Forex
 
         #region Tickers
+
         #endregion
 
         #region Currency Conversion
+
         #endregion
 
         #region Aggregate Bars(OHLC)
+
         #endregion
 
         #region Snapshots
+
         #endregion
 
         #region Quotes
+
         #endregion
 
         #region Technical Indicators
+
         #endregion
 
         #region Market Operations
+
         #endregion
 
         #endregion
@@ -276,21 +304,27 @@ namespace PolygonClient
         #region Crypto
 
         #region Tickers
+
         #endregion
 
         #region Aggregate Bars(OHLC)
+
         #endregion
 
         #region Snapshots
+
         #endregion
 
         #region Trades
+
         #endregion
 
         #region Technical Indicators
+
         #endregion
 
         #region Market Operations
+
         #endregion
 
         #endregion
@@ -298,6 +332,7 @@ namespace PolygonClient
         #region Economy
 
         #region Treasury Yields
+
         #endregion
 
         #endregion
